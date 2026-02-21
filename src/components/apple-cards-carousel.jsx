@@ -1,0 +1,259 @@
+"use client";;
+import React, {
+  useEffect,
+  useRef,
+  useState,
+  createContext,
+  useContext,
+} from "react";
+import { twMerge } from "tailwind-merge";
+import { IconX } from "@tabler/icons-react";
+import { AnimatePresence, motion } from "framer-motion";
+import { useOutsideClick } from "../components/useOutsideClick";
+
+export const CarouselContext = createContext({
+  onCardClose: () => {},
+  currentIndex: 0,
+});
+
+export const Carousel = ({
+  items,
+  initialScroll = 0
+}) => {
+  const carouselRef = React.useRef(null);
+  const [canScrollLeft, setCanScrollLeft] = React.useState(false);
+  const [canScrollRight, setCanScrollRight] = React.useState(true);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    if (carouselRef.current) {
+      carouselRef.current.scrollLeft = initialScroll;
+      checkScrollability();
+    }
+  }, [initialScroll]);
+
+  const checkScrollability = () => {
+    if (carouselRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = carouselRef.current;
+      setCanScrollLeft(scrollLeft > 0);
+      setCanScrollRight(scrollLeft < scrollWidth - clientWidth);
+    }
+  };
+
+  const handleCardClose = (index) => {
+    if (carouselRef.current) {
+      const cardWidth = isMobile() ? 230 : 384; // (md:w-96)
+      const gap = isMobile() ? 4 : 8;
+      const scrollPosition = (cardWidth + gap) * (index + 1);
+      carouselRef.current.scrollTo({
+        left: scrollPosition,
+        behavior: "smooth",
+      });
+      setCurrentIndex(index);
+    }
+  };
+
+  const isMobile = () => {
+    return window && window.innerWidth < 768;
+  };
+
+  return (
+    <CarouselContext.Provider value={{ onCardClose: handleCardClose, currentIndex }}>
+      <div className="relative w-full">
+        <div
+          className="flex w-full overflow-x-scroll overscroll-x-auto scroll-smooth py-10 [scrollbar-width:none] md:py-10"
+          ref={carouselRef}
+          onScroll={checkScrollability}>
+          <div
+            className={twMerge("absolute right-0 z-[1000] h-auto w-[5%] overflow-hidden bg-gradient-to-l")}></div>
+
+          <div
+            className=
+              "flex flex-row gap-6 px-6"
+            >
+            {items.map((item, index) => (
+              <motion.div
+                initial={{
+                  opacity: 0,
+                  y: 20,
+                }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                  transition: {
+                    duration: 0.5,
+                    delay: 0.2 * index,
+                    ease: "easeOut",
+                  },
+                }}
+                key={"card" + index}
+                className="rounded-3xl last:pr-[2%] md:last:pr-[2%]">
+                {item}
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </CarouselContext.Provider>
+  );
+};
+
+export const Card = ({
+  card,
+  index,
+  layout = false
+}) => {
+  const [open, setOpen] = useState(false);
+  const containerRef = useRef(null);
+  const { onCardClose, currentIndex } = useContext(CarouselContext);
+
+  useEffect(() => {
+    function onKeyDown(event) {
+      if (event.key === "Escape") {
+        handleClose();
+      }
+    }
+
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [open]);
+
+  useOutsideClick(containerRef, () => handleClose());
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+    onCardClose(index);
+  };
+
+  return (
+    <>
+      <AnimatePresence>
+        {open && (
+  <div className="fixed inset-0 z-50 flex items-center justify-center">
+
+    {/* overlay */}
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="absolute inset-0 bg-black/60 backdrop-blur-md"
+      onClick={handleClose}
+    />
+
+    {/* modal */}
+    <motion.div
+      ref={containerRef}
+      initial={{ scale: 0.92, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      exit={{ scale: 0.92, opacity: 0 }}
+      className="relative z-50 w-[70vw] h-[80vh] bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col"
+    >
+
+      {/* top image */}
+      <div className="h-1/3 w-full relative">
+        <img
+          src={card.src}
+          alt={card.title}
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+      </div>
+
+      {/* scrollable content */}
+      <div className="flex-1 overflow-y-auto p-10">
+
+        <button
+          onClick={handleClose}
+          className="absolute top-6 right-6 text-2xl text-gray-400 hover:text-black"
+        >
+          ✕
+        </button>
+
+        {/* category */}
+        <p className="text-sm text-gray-500 mb-2">
+          {card.category}
+        </p>
+
+        {/* clickable company name */}
+        <a
+          href={card.link}
+          target="_blank"
+          className="text-4xl font-bold text-black hover:underline block mb-6"
+        >
+          {card.title}
+        </a>
+
+        {/* description */}
+        <div className="text-gray-700 leading-relaxed space-y-6">
+          {card.content}
+        </div>
+
+      </div>
+    </motion.div>
+  </div>
+)}
+      </AnimatePresence>
+      <motion.button
+        layoutId={layout ? `card-${card.title}` : undefined}
+        onClick={handleOpen}
+        className="relative z-10 flex h-80 w-56 flex-col items-start justify-start overflow-hidden rounded-3xl bg-gray-100 md:h-[38rem] md:w-[30rem] dark:bg-neutral-900">
+        <div
+          className="pointer-events-none absolute inset-x-0 top-0 z-30 h-full bg-gradient-to-b from-black/50 via-transparent to-transparent" />
+        <div className="relative z-40 p-8">
+          <motion.p
+            layoutId={layout ? `category-${card.category}` : undefined}
+            className="text-left font-sans text-sm font-medium text-white md:text-base">
+            {card.category}
+          </motion.p>
+          <motion.p
+            layoutId={layout ? `title-${card.title}` : undefined}
+            className="mt-2 max-w-xs text-left font-sans text-xl font-semibold [text-wrap:balance] text-white md:text-3xl">
+            {card.title}
+          </motion.p>
+        </div>
+        <BlurImage
+          src={card.src}
+          alt={card.title}
+          fill
+          className="absolute inset-0 z-10 object-cover" />
+      </motion.button>
+    </>
+  );
+};
+
+export const BlurImage = ({
+  height,
+  width,
+  src,
+  className,
+  alt,
+  ...rest
+}) => {
+  const [isLoading, setLoading] = useState(true);
+  return (
+    <img
+      className={twMerge(
+        "h-full w-full transition duration-300",
+        isLoading ? "blur-sm" : "blur-0",
+        className
+      )}
+      onLoad={() => setLoading(false)}
+      src={src}
+      width={width}
+      height={height}
+      loading="lazy"
+      decoding="async"
+      blurDataURL={typeof src === "string" ? src : undefined}
+      alt={alt ? alt : "Background of a beautiful view"}
+      {...rest} />
+  );
+};
