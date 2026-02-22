@@ -21,7 +21,7 @@ export default function FooterBar() {
     <div className="w-full bg-red-600 py-6 px-10 relative flex items-center justify-between">
 
       {/* LEFT LOGO */}
-      <img src="/saraswati.png" className="h-8"/>
+      <img src="/saraswati.png" className="h-12"/>
 
       {/* CENTER DOCK */}
       <div className="absolute left-1/2 -translate-x-1/2">

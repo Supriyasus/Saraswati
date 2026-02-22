@@ -9,18 +9,17 @@ export default function Navbar() {
 
 return (
   <>
-    <nav className="fixed top-0 left-0 w-full z-50 bg-[#0e275e]/40 backdrop-blur-lg shadow-md ">
-      <div className="max-w-7xl mx-auto px-2 h-10 flex items-center justify-between text-white">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-black/40 backdrop-blur-lg shadow-md ">
+      <div className="max-w-7xl mx-auto px-2 h-10 flex items-center justify-between text-white/50 ">
 
-        <a className="font-semibold text-lg tracking-wide" href="hero">
+        <a className="font-semibold text-lg tracking-wide hover:text-white transition-all duration-300" href="hero">
           Saraswati
         </a>
 
-        <div className="hidden md:flex gap-8 text-sm font-medium">
+        <div className="hidden md:flex gap-8 text-sm font-medium ">
           {links.map((item) => (
-            <a key={item} href="#" className="relative group">
+            <a key={item} href="#" className="relative group hover:text-white transition-all duration-300">
               {item}
-              <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-[#fefdf3] transition-all duration-300 group-hover:w-full" />
             </a>
           ))}
         </div>
