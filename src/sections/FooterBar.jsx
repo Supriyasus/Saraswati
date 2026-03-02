@@ -24,8 +24,8 @@ export default function FooterBar() {
       <img src="/saraswati.png" className="h-12"/>
 
       {/* CENTER DOCK */}
-      <div className="absolute left-1/2 -translate-x-1/2">
-        <FloatingDock items={socials}/>
+      <div className="absolute left-1/2 -translate-x-1/2 hidden md:block">
+        <FloatingDock items={socials} showMobile={false}/>
       </div>
 
       {/* RIGHT SIDE CONTENT */}

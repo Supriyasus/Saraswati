@@ -8,6 +8,7 @@ import Team from './sections/Team';
 import Timeline from './sections/Timeline';
 import Work from './sections/Work';
 import FooterBar from './sections/FooterBar';
+import Leader from './sections/Leader';
 
 
 export default function App() {
@@ -16,6 +17,7 @@ export default function App() {
     <Navbar />
     <Hero />
     <LogoMarquee />
+    <Leader />
     <AboutUs />
     <Work />
     <Timeline />

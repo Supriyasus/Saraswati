@@ -1,12 +1,15 @@
 export default function LogoMarquee() {
   const logos = [
-    "/msds.png",
-    "/Maruti suzuki.png",
-    "/truevalue.png",
-    "/holidayinn.png",
     "/hero.png",
+    "/vida.png",
+    "/harley.png",
+    "/Maruti suzuki.png",
+    "/arena.png",
     "/nexa-bg.png",
     "/commercial.png",
+    "/msds.png",
+    "/truevalue.png",
+    "/holidayinn.png",
   ];
 
   return (

@@ -13,10 +13,23 @@ L.Icon.Default.mergeOptions({
 
 /* LOCATIONS */
 const allLocations = [
-  { city:"Delhi", name:"Magic Auto Private Ltd", address:"Ghazipur Village", lat:28.6139, lng:77.209 },
-  { city:"Delhi", name:"Dinco 4 Wheels LLP", address:"Vasant Kunj", lat:28.5562, lng:77.1 },
-  { city:"Mumbai", name:"AutoHub Mumbai", address:"Andheri East", lat:19.1136, lng:72.8697 },
-  { city:"Lucknow", name:"Royal Motors", address:"Hazratganj", lat:26.8467, lng:80.9462 }
+  { city:"Prayagraj", name:"Maruti Suzuki Arena (Head Office)", contact:"08071645716", address:"13, 11/5C, Dr Lohia Rd, Lohiya Marg, Prayagraj, Uttar Pradesh 211001", lat:25.459965323754805, lng:81.82978930718595 },
+  { city:"Prayagraj", name:"Hero MotoCorp", contact: "09289922066", address:"No 44, Muir Rd, Om Nagar, Rajapur, Hanumanthpuram, Prayagraj, Uttar Pradesh 211002", lat:25.466556805369077, lng:81.83255851111954 },
+  { city:"Prayagraj", name:"Maruti Suzuki True Value", contact:"08037070503",address:"Arazi no. 263, Tehsil-Phulpur, Post, Sarai Inayat, Sarfuddinpur, Phulpur, Uttar Pradesh 221505", lat:25.425720712372005, lng: 81.97926434180494 },
+  { city:"Prayagraj", name:"Hero MotoCorp", contact:"09415324203", address:"Mansarovar Crossing 4, Shiv Charan Lal Rd, Prayagraj, Uttar Pradesh 211003", lat:25.44179440122915, lng:81.8410984008747 },
+  { city:"Prayagraj", name:"Maruti Suzuki Nexa", contact:"08037892034", address:"Khasra No.638, Tehsil Phoolpur, Andawa, Prayagraj, Uttar Pradesh 221505", lat:25.43125995305259, lng:81.94126142123969 },
+  { city:"Prayagraj", name:"Maruti Suzuki Driving School", contact: "08090854003", address:"13, 11 5C, Dr Lohia Rd, Civil Lines, Prayagraj, Uttar Pradesh 211001", lat:25.46171360749004, lng:81.82913145299833 },
+  { city:"Prayagraj", name:"Maruti Suzuki Service", contact:"08929000277",address:"MNIT Industrial Estate No 24, Mehdauri Colony, Teliarganj, Prayagraj, Uttar Pradesh 211004", lat:25.49921494741232, lng:81.86312040496281 },
+  { city:"Prayagraj", name:"Maruti Suzuki Commercial", contact:"08037240921", address:"21C, Sargam Chauraha, near Sargam Chauraha, Nai Bazar, Chaka, Naini, Prayagraj, Uttar Pradesh 211008", lat:25.389449309375312, lng:81.86844691437184 },
+  { city:"Prayagraj", name:"Maruti Suzuki Service", contact:"08071649066", address:"342, Bhagipur, Sarai Inayat, Andwa,Jhunsi Sarpatipur, Uttar Pradesh 221505", lat:25.43061301135929, lng:81.98023532810744 },
+  { city:"Meja", name:"Maruti Suzuki Arena", contact: "08037580081", address:"Meja Road, Meja Tehsil, Prayagraj, Uttar Pradesh 212303", lat:25.223447341446313, lng:82.08167690536037 },
+  { city:"Koraon", name:"Maruti Suzuki Arena", contact:"08037150007",address:"Khasra No.441, Kala (Kheragarh, Baindavar, Koraon, Uttar Pradesh 212306", lat:24.99256607989822, lng:82.08018560536036 },
+  { city:"Mauja", name:"Maruti Suzuki Service", contact:"08090854005", address:"Mauja, Tehsil, Chail, Uttar Pradesh 212202", lat:25.435276414669822, lng:81.62867106200989 },
+  { city:"Manjhanpur", name:"Maruti Suzuki Arena", contact:"08037267211", address:"Manjhanpur - Sirathu Rd, Korron, Manjhanpur, Uttar Pradesh 212207", lat:25.551299427329564, lng:81.37104360750409 },
+  //{ city:"Prayagraj", name:"Maruti Suzuki Driving School", contact: "08090854003", address:"13, 11 5C, Dr Lohia Rd, Civil Lines, Prayagraj, Uttar Pradesh 211001", lat:25.46171360749004, lng:81.82913145299833 },
+  //{ city:"Prayagraj", name:"Maruti Suzuki Service", contact:"08929000277",address:"MNIT Industrial Estate No 24, Mehdauri Colony, Teliarganj, Prayagraj, Uttar Pradesh 211004", lat:25.49921494741232, lng:81.86312040496281 },
+  //{ city:"Prayagraj", name:"Maruti Suzuki Commercial", contact:"08037240921", address:"21C, Sargam Chauraha, near Sargam Chauraha, Nai Bazar, Chaka, Naini, Prayagraj, Uttar Pradesh 211008", lat:25.389449309375312, lng:81.86844691437184 }
+
 ];
 
 const cities = [...new Set(allLocations.map(l => l.city))];
@@ -91,13 +104,14 @@ export default function Locations() {
               key={i}
               onClick={()=>setSelected(place)}
               className={`p-6 border-b cursor-pointer transition
-              ${selected.name===place.name
+              ${selected===place
                 ? "bg-red-50"
                 : "hover:bg-gray-50"}
               `}
             >
               <h3 className="font-semibold text-lg">{place.name}</h3>
               <p className="text-gray-500 mt-1">{place.address}</p>
+              <p className="text-gray-500 mt-1">{place.contact}</p>
 
               <a
                 href={`https://www.google.com/maps/dir/?api=1&destination=${place.lat},${place.lng}`}

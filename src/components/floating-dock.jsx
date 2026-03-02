@@ -14,12 +14,15 @@ import { useRef, useState } from "react";
 export const FloatingDock = ({
   items,
   desktopClassName,
-  mobileClassName
+  mobileClassName,
+  showMobile = true
 }) => {
   return (
     <>
       <FloatingDockDesktop items={items} className={desktopClassName} />
-      <FloatingDockMobile items={items} className={mobileClassName} />
+      {showMobile && (
+        <FloatingDockMobile items={items} className={mobileClassName} />
+      )}
     </>
   );
 };
