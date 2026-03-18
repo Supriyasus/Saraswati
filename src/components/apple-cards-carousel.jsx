@@ -160,7 +160,7 @@ export const Card = ({
     >
 
       {/* top image */}
-      <div className="h-1/3 w-full relative">
+      <div className="h-2/4 w-full relative">
         <img
           src={card.src}
           alt={card.title}
@@ -179,7 +179,7 @@ export const Card = ({
         </button>
 
         {/* category */}
-        <p className="text-sm text-gray-500 mb-2">
+        <p className="text-xl text-gray-500 mb-2">
           {card.category}
         </p>
 
@@ -193,7 +193,7 @@ export const Card = ({
         </a>
 
         {/* description */}
-        <div className="text-gray-700 leading-relaxed space-y-6">
+        <div className="text-gray-700 text-xl leading-relaxed space-y-6">
           {card.content}
         </div>
 

@@ -27,7 +27,7 @@ export default function Leader() {
         <span className="leader__quote leader__quote--end">”</span>
 
         <p className="leader__sub">
-          Mr. Ganesh Prasad Srivastava | 1st September 1954 – Forever | Chairman Emeritus
+          Mr. G.P Srivastava | 1st September 1954 – Forever | Founder and Chairman
         </p>
       </div>
 

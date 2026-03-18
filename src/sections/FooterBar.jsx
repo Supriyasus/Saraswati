@@ -1,35 +1,80 @@
-import { FloatingDock } from "../components/floating-dock";
 import {
   IconBrandInstagram,
-  IconBrandLinkedin,
-  IconBrandYoutube,
-  IconBrandFacebook,
-  IconBrandX
+  IconMail,
+  IconPhone
 } from "@tabler/icons-react";
 
 export default function FooterBar() {
 
   const socials = [
-    { title:"Facebook", icon:<IconBrandFacebook className="h-full w-full"/>, href:"#"},
-    { title:"Instagram", icon:<IconBrandInstagram className="h-full w-full"/>, href:"#"},
-    { title:"LinkedIn", icon:<IconBrandLinkedin className="h-full w-full"/>, href:"#"},
-    { title:"YouTube", icon:<IconBrandYoutube className="h-full w-full"/>, href:"#"},
-    { title:"Twitter", icon:<IconBrandX className="h-full w-full"/>, href:"#"}
+    {
+      icon: <IconBrandInstagram size={20} />,
+      href: "https://instagram.com"
+    },
+    {
+      icon: <IconMail size={20} />,
+      href: "mailto:info@saraswati.com"
+    },
+    {
+      icon: <IconPhone size={20} />,
+      href: "tel:+9180037150007"
+    }
   ];
 
   return (
-    <div className="w-full bg-red-600 py-6 px-10 relative flex items-center justify-between">
+    <div className="w-full bg-black text-white py-8 px-6 md:px-10">
 
-      {/* LEFT LOGO */}
-      <img src="/saraswati.png" className="h-12"/>
+      {/* TOP ROW */}
+      <div className="
+        flex flex-col md:flex-row
+        items-center md:items-center
+        justify-between
+        gap-6
+      ">
 
-      {/* CENTER DOCK */}
-      <div className="absolute left-1/2 -translate-x-1/2 hidden md:block">
-        <FloatingDock items={socials} showMobile={false}/>
+        {/* LEFT - LOGO */}
+        <div className="flex items-center gap-3">
+          <img src="/saraswati.png" className="h-10" />
+        </div>
+
+        {/* RIGHT - DOCK */}
+        <div className="bg-white/10 backdrop-blur-lg rounded-full px-6 py-3 flex items-center gap-6">
+
+          {socials.map((item, i) => (
+            <a
+              key={i}
+              href={item.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="
+                flex items-center justify-center
+                w-10 h-10 rounded-full
+                text-white
+                hover:bg-white/20
+                hover:scale-110
+                transition duration-300
+              "
+            >
+              {item.icon}
+            </a>
+          ))}
+
+        </div>
+
       </div>
 
-      {/* RIGHT SIDE CONTENT */}
-      <div className="flex gap-6 text-sm text-white">
+      {/* DIVIDER */}
+      <div className="border-t border-white/10 my-6"></div>
+
+      {/* BOTTOM */}
+      <div className="
+        flex flex-col md:flex-row
+        items-center
+        justify-center 
+        text-sm text-white/60
+        gap-3
+        text-center
+      ">
         <p>© 2024 Saraswati. All rights reserved.</p>
       </div>
 

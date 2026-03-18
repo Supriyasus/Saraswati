@@ -1,32 +1,22 @@
-"use client";
 import { motion } from "framer-motion";
 import SmartImage from "../components/SmartImage";
+
 const leaders = [
   {
     name: "Mr. Ankit Raj",
-    role: "Chief Strategy Officer",
-    image: "/team/leader2.jpg",
-    message:
-      "Our strength lies in collaboration, curiosity, and courage."
-  },
-  {
-    name: "Mrs. Suman Srivastava",
-    role: "Head of Innovation",
-    image: "/team/leader3.jpg",
-    message:
-      "Innovation is not an act — it’s our culture."
+    role: "Managing Director",
+    image: "/team/ankit1.jpeg",
+    message: "Our strength lies in collaboration, curiosity, and courage."
   }
 ];
 
 const team = [
-  { name: "Dev Sharma", role: "Engineer", SmartImage: "/team/1.jpg" },
-  { name: "Neha Singh", role: "Designer", SmartImage: "/team/2.jpg" },
-  { name: "Kunal Jain", role: "Developer", SmartImage: "/team/3.jpg" },
-  { name: "Simran Kaur", role: "Marketing", SmartImage: "/team/4.jpg" },
-  { name: "Aditya Shah", role: "Analyst", SmartImage: "/team/5.jpg" },
-  { name: "Priya Patel", role: "HR", SmartImage: "/team/6.jpg" },
-  { name: "Rahul Verma", role: "QA", SmartImage: "/team/7.jpg" },
-  { name: "Meera Nair", role: "Research", SmartImage: "/team/8.jpg" },
+  { name: "Ms. Suman Srivastava", role: "MD MSDS", image: "/team/suman.png" },
+  { name: "Mr. Jalaj Chaturvedi", role: "Sr. GM", image: "/team/jalaj.png" },
+  { name: "Mr. Ashutosh Pandey", role: "VP Service", image: "/team/ashutosh.png" },
+  { name: "Mr. Dhirendra Kumar", role: "GM Operations", image: "/team/dhirendra.png" },
+  { name: "Mr. Abhishek Dwivedi", role: "HR Head", image: "/team/abhishekd.png" },
+  { name: "Mr. Abhishek Chaurasia", role: "Accounts Head", image: "/team/abhishekc.png" }
 ];
 
 const fadeUp = {
@@ -35,8 +25,8 @@ const fadeUp = {
     opacity: 1,
     y: 0,
     transition: {
-      delay: i * 0.2,
-      duration: 0.9,
+      delay: i * 0.15,
+      duration: 0.7,
       ease: "easeOut"
     }
   })
@@ -44,64 +34,124 @@ const fadeUp = {
 
 export default function Team() {
   return (
-    <section className="py-20 px-6 ">
+    <section className="py-20 px-6 max-w-8xl mx-auto">
 
       {/* Heading */}
-      <div className="text-center mb-16">
-        <h2 className="max-w-7xl mx-auto text-center text-4xl md:text-6xl font-bold mb-6">OUR TEAM</h2>
-        <p className="text-center text-xl max-w-6xl mx-auto mb-16 text-gray-700">
+      <div className="text-center mb-20">
+        <h2 className="text-4xl md:text-6xl font-bold mb-6">
+          OUR TEAM
+        </h2>
+        <p className="text-xl max-w-4xl mx-auto text-gray-700">
           The people behind our progress, partnerships, and purpose.
         </p>
       </div>
 
-      {/* Leaders */}
-      <div className="grid md:grid-cols-2 gap-10 max-w-7xl mx-auto ">
-        {leaders.map((person, i) => (
-          <motion.div
-            key={i}
-            variants={fadeUp}
-            initial="hidden"
-            animate="show"
-            custom={i}
-            className="bg-[#142f66]/90 rounded-3xl p-8 flex gap-6 items-center shadow-lg"
-          >
-            <SmartImage
-              src={person.image}
-              className="w-40 h-40 object-cover rounded-2xl"
-            />
+      {/* LEADERS SECTION */}
+<div className="max-w-7xl mx-auto mb-24">
+  {leaders.map((person, i) => (
+    <motion.div
+      key={i}
+      variants={fadeUp}
+      initial="hidden"
+      animate="show"
+      custom={i}
+      className="
+        bg-[#15284e]
+        rounded-2xl
+        flex flex-col md:flex-row
+        items-center
+        shadow-lg
+        overflow-hidden
+      "
+    >
 
-            <div className="text-white">
-              <h3 className="text-2xl font-semibold">{person.name}</h3>
-              <p className="text-white/70 mb-4">{person.role}</p>
-              <p className="text-lg">{person.message}</p>
-            </div>
-          </motion.div>
-        ))}
+      {/* LEFT SIDE */}
+      <div className="w-full md:w-1/2 flex justify-center items-center py-12">
+        
+        {/* THIS is the important fix */}
+        <div className="bg-white rounded-xl shadow-md p-4">
+          <SmartImage
+            src={person.image}
+            className="h-[380px] w-auto object-contain"
+          />
+        </div>
+
       </div>
-      {/* Team Grid */}
-      <div className="grid p-6 grid-cols-2 md:grid-cols-4 max-w-7xl mx-auto gap-6">
+
+      {/* RIGHT SIDE */}
+      <div className="
+        w-full md:w-1/2
+        bg-[#1f3b73]
+        text-white
+        px-10 md:px-16 py-12
+        text-center md:text-left
+      ">
+        <h3 className="text-3xl md:text-4xl font-semibold mb-3">
+          {person.name}
+        </h3>
+
+        <p className="text-white/70 mb-4 text-lg">
+          {person.role}
+        </p>
+
+        <p className="text-lg md:text-xl leading-relaxed max-w-md mx-auto md:mx-0">
+          {person.message}
+        </p>
+      </div>
+
+    </motion.div>
+  ))}
+</div>
+
+      {/* TEAM GRID */}
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-10 max-w-7xl mx-auto">
         {team.map((member, i) => (
           <motion.div
             key={i}
             variants={fadeUp}
             initial="hidden"
             animate="show"
-            custom={i + 3}
-            className="relative rounded-2xl overflow-hidden group shadow-md"
+            custom={i + 2}
+            className="
+              bg-[#f9f5f0]
+              rounded-2xl
+              shadow-md
+              hover:shadow-lg
+              transition
+              overflow-hidden
+            "
           >
-            <SmartImage
-              src={member.SmartImage}
-              className="w-full h-52 object-cover group-hover:scale-110 transition duration-700"
-            />
 
-            {/* Overlay */}
-            <div className="absolute bottom-0 w-full bg-gradient-to-t from-black/80 to-transparent text-center py-4">
-              <p className="text-white font-semibold">{member.name}</p>
-              <p className="text-white/70 text-sm">{member.role}</p>
+            {/* Image Frame */}
+            <div className="
+              w-full
+              h-64
+              flex items-center justify-center
+              bg-[#f9f5f0]
+              p-6
+            ">
+              <div className="w-full h-72 flex items-end justify-center bg-[#f9f5f0] overflow-hidden">
+                <SmartImage
+                  src={member.image}
+                  className="h-full w-full object-contain object-bottom"
+                />
+              </div>
             </div>
+
+            {/* Info */}
+            <div className="py-4 text-center">
+              <p className="font-semibold text-gray-900">
+                {member.name}
+              </p>
+              <p className="text-gray-500 text-sm">
+                {member.role}
+              </p>
+            </div>
+
           </motion.div>
         ))}
       </div>
+
     </section>
   );
 }
