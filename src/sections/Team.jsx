@@ -6,16 +6,16 @@ const leaders = [
     name: "Mr. Ankit Raj",
     role: "Managing Director",
     image: "/team/ankit1.jpeg",
-    message: "Our strength lies in collaboration, curiosity, and courage."
+    message: "Driven by a heritage of trust and a vision for the future, we are redefining what it means to lead with purpose and serve with passion."
   }
 ];
 
 const team = [
-  { name: "Ms. Suman Srivastava", role: "MD MSDS", image: "/team/suman.png" },
-  { name: "Mr. Jalaj Chaturvedi", role: "Sr. GM", image: "/team/jalaj.png" },
-  { name: "Mr. Ashutosh Pandey", role: "VP Service", image: "/team/ashutosh.png" },
-  { name: "Mr. Dhirendra Kumar", role: "GM Operations", image: "/team/dhirendra.png" },
-  { name: "Mr. Abhishek Dwivedi", role: "HR Head", image: "/team/abhishekd.png" },
+  { name: "Mrs. Suman Srivastava", role: "Managing Director MSDS", image: "/team/suman.png" },
+  { name: "Mr. Jalaj Chaturvedi", role: "Sr. General Manager", image: "/team/jalaj.png" },
+  { name: "Mr. Ashutosh Pandey", role: "Vice President Service", image: "/team/ashutosh.png" },
+  { name: "Mr. Dhirendra Kumar", role: "General Manager Operations", image: "/team/dhirendra.png" },
+  { name: "Mr. Abhishek Dwivedi", role: "Human Resources Head", image: "/team/abhishekd.png" },
   { name: "Mr. Abhishek Chaurasia", role: "Accounts Head", image: "/team/abhishekc.png" }
 ];
 

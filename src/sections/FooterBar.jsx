@@ -1,23 +1,29 @@
 import {
+  IconBrandFacebook,
   IconBrandInstagram,
   IconMail,
   IconPhone
 } from "@tabler/icons-react";
+import { icon } from "leaflet";
 
 export default function FooterBar() {
 
   const socials = [
     {
       icon: <IconBrandInstagram size={20} />,
-      href: "https://instagram.com"
+      href: "https://www.instagram.com/saraswati_motors_group?igsh=MThsemNtdWE5cDVxcg=="
     },
     {
       icon: <IconMail size={20} />,
-      href: "mailto:info@saraswati.com"
+      href: "mailto:contact@smlindia.in"
     },
     {
       icon: <IconPhone size={20} />,
-      href: "tel:+9180037150007"
+      href: "tel:+9180908254001"
+    },
+    {
+      icon: <IconBrandFacebook size={20} />,
+      href: "https://www.facebook.com/share/1CK1HRrjf4/?mibextid=wwXIfr"
     }
   ];
 
