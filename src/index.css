@@ -9,28 +9,27 @@ body {
 }
 
 .leader {
-  position: relative;
   width: 100%;
-  min-height: 100vh;
   background: #000;
-  overflow: hidden;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 3rem 1.5rem;
 }
 
 /* IMAGE */
 
 .leader__imageWrapper {
-  position: absolute;
-  bottom: 0;
-  left: 8%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 2rem;
 }
 
 .leader__image {
-  max-height: 85vh;
+  max-height: 55vh;
   width: auto;
+  max-width: 100%;
+  display: block;
   object-fit: contain;
 }
 
@@ -38,24 +37,24 @@ body {
 
 .leader__content {
   position: relative;
-  max-width: 620px;
-  margin-left: auto;
-  margin-right: 8%;
+  width: 100%;
+  max-width: 860px;
+  padding: 4rem 2rem 5rem;
   color: white;
-  z-index: 2;
+  text-align: center;
 }
 
 .leader__heading {
-  font-size: clamp(2rem, 4vw, 3rem);
-  margin-top: 2rem;
+  font-size: clamp(1.6rem, 3.5vw, 2.8rem);
+  margin-top: 1.5rem;
   font-weight: 600;
-  line-height: 1.2;
+  line-height: 1.25;
 }
 
 .leader__sub {
   margin-top: 1.2rem;
-  opacity: 0.85;
-  font-size: 1.3rem;
+  opacity: 0.75;
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
 }
 
 .leader__btn {
@@ -78,42 +77,60 @@ body {
 /* QUOTES */
 
 .leader__quote {
-  position: absolute;
-  font-size: 5rem;
+  font-size: 4rem;
   color: red;
   font-weight: bold;
+  line-height: 1;
+  display: block;
 }
 
 .leader__quote--start {
-  left: -40px;
-  top: -30px;
+  text-align: left;
 }
 
 .leader__quote--end {
-  right: -30px;
-  bottom: 20px;
+  text-align: right;
+  margin-top: -1rem;
 }
 
-/* MOBILE */
+/* DESKTOP — original side-by-side layout */
 
-@media (max-width: 768px) {
+@media (min-width: 2612px) {
   .leader {
-    flex-direction: column;
-    text-align: center;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 0 5% 0 0;
   }
 
   .leader__imageWrapper {
-    position: relative;
-    left: auto;
-    margin-top: 2rem;
+    flex: 0 0 48%;
+    width: auto;
+    align-self: flex-end;
+    justify-content: flex-start;
+  }
+
+  .leader__image {
+    width: auto;
+    max-height: 100vh;
+    max-width: 100%;
+    object-fit: contain;
+    object-position: bottom;
   }
 
   .leader__content {
-    margin: 0;
+    flex: 1;
+    text-align: left;
+    padding: 4rem 0 4rem 2rem;
+    max-width: 560px;
   }
 
-  .leader__quote--start,
+  .leader__quote--start {
+    text-align: left;
+  }
+
   .leader__quote--end {
-    display: none;
+    text-align: right;
   }
 }

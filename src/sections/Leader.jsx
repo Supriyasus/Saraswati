@@ -20,7 +20,7 @@ export default function Leader() {
         <span className="leader__quote leader__quote--start">“</span>
 
         <h1 className="leader__heading">
-          We must give back to the society from whose resources we generate wealth.
+          कर्म ही रचता है जीवन की हर दिशा, जो जैसा करता है, वैसा ही फल देखता।
         </h1>
 
         {/* closing quote */}

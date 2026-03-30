@@ -5,31 +5,52 @@ import { AnimatePresence, motion } from "framer-motion";
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
-  const links = ["About us", "Our Work", "History", "Team", "Locations"];
+  const links = [
+    { name: "About us", path: "about" },
+    { name: "Our Work", path: "work" },
+    { name: "History", path: "history" },
+    { name: "Team", path: "team" },
+    { name: "Locations", path: "locations" }
+  ];
+
+  // 🔥 Smooth scroll with navbar offset
+  const handleScroll = (id) => {
+    const el = document.getElementById(id);
+    if (el) {
+      const yOffset = -80; // navbar height
+      const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+      window.scrollTo({
+        top: y,
+        behavior: "smooth"
+      });
+    }
+    setOpen(false);
+  };
 
   return (
     <>
       <nav className="fixed top-0 left-0 w-full z-50 bg-black/40 backdrop-blur-lg shadow-md">
         <div className="mx-auto px-6 h-16 flex items-center justify-between text-white/80">
 
-          {/* Logo - Increased */}
-          <a
+          {/* Logo */}
+          <button
+            onClick={() => handleScroll("home")}
             className="font-semibold text-xl md:text-2xl tracking-wide hover:text-white transition-all duration-300"
-            href="hero"
           >
             Saraswati
-          </a>
+          </button>
 
-          {/* Desktop Links - Increased */}
+          {/* Desktop Links */}
           <div className="hidden md:flex gap-10 font-medium text-xl">
             {links.map((item) => (
-              <a
-                key={item}
-                href="#"
+              <button
+                key={item.path}
+                onClick={() => handleScroll(item.path)}
                 className="relative hover:text-white transition-all duration-300"
               >
-                {item}
-              </a>
+                {item.name}
+              </button>
             ))}
           </div>
 
@@ -57,17 +78,16 @@ export default function Navbar() {
               <X size={30} />
             </button>
 
-            {/* Mobile Links - Increased */}
+            {/* Mobile Links */}
             <div className="flex flex-col gap-10 text-3xl font-medium text-center">
               {links.map((item) => (
-                <a
-                  key={item}
-                  href="#"
-                  onClick={() => setOpen(false)}
+                <button
+                  key={item.path}
+                  onClick={() => handleScroll(item.path)}
                   className="hover:text-white/70 transition"
                 >
-                  {item}
-                </a>
+                  {item.name}
+                </button>
               ))}
             </div>
           </motion.div>

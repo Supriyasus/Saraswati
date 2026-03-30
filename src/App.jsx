@@ -14,16 +14,19 @@ import Leader from './sections/Leader';
 export default function App() {
   return (
     <>
-    <Navbar />
-    <Hero />
-    <LogoMarquee />
-    <Leader />
-    <AboutUs />
-    <Work />
-    <Timeline />
-    <Team />
-    <Locations />
-    <FooterBar />
+      <Navbar />
+
+      <section id="home"><Hero /></section>
+      <LogoMarquee />
+      <Leader />
+
+      <section id="about"><AboutUs /></section>
+      <section id="work"><Work /></section>
+      <section id="history"><Timeline /></section>
+      <section id="team"><Team /></section>
+      <section id="locations"><Locations /></section>
+
+      <FooterBar />
     </>
   );
 }

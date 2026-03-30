@@ -6,13 +6,18 @@ import SmartImage from "../components/SmartImage";
 const data = [
   { year:1992, image:"/history/1992.jpeg", text:"The journey began with the establishment of our first branch in Rajapur, laying the foundation for our future growth." },
   { year:2006, image:"/history/2006.jpeg", text:"Expanded our presence with the launch of operations in Vishambar, strengthening our regional footprint." },
-  { year:2014, image:"/history/2014.jpeg", text:"Achieved recognition as India’s No. 2 in Hero MotoCorp sales, reflecting our commitment to excellence." },
-  { year:2015, image:"/history/2015.jpeg", text:"Built one of the country’s largest secondary networks, significantly expanding our nationwide reach." },
+  {
+  year: "2014",
+  image: "/history/2014.jpeg",
+  text: "Recognized as India’s No. 2 in Hero MotoCorp sales, while simultaneously building one of the country’s largest secondary networks to expand our nationwide presence."
+},
   { year:2020, image:"/history/2020.jpeg", text:"Entered a new phase of progress with the launch of our Maruti Suzuki Arena showroom." },
   { year:2021, image:"/history/2021.jpeg", text:"Diversified our offerings with the inauguration of the Maruti Suzuki Driving School." },
-  { year:2022, image:"/history/2022-koraon.jpeg", text:"Strengthened accessibility with the opening of our Arena showroom in Koraon." },
-  { year:2022, image:"/history/2022-pratapgarh.jpeg", text:"Further expansion continued with the launch of our Arena showroom in Pratapgarh." },
-  { year:2022, image:"/history/2022-manjhanpur.jpeg", text:"Extended our network with new outlets in Manjhanpur and Kunda." },
+  {
+  year: 2022,
+  image: "/history/2022-koraon.jpeg",
+  text: "Expanded our footprint by opening Arena showrooms in Koraon and Pratapgarh, along with new outlets in Manjhanpur and Kunda, strengthening accessibility and network reach."
+},
   { year:2023, image:"/history/2023-naini.jpeg", text:"Opened our Commercial Showroom in Naini, marking a significant step in our growth journey." },
   { year:2023, image:"/history/2023-truevalue.jpeg", text:"Launched True Value operations, expanding our presence in the pre-owned vehicle segment." },
   { year:2023, image:"/history/2023-nexa.jpeg", text:"Continued our expansion with the introduction of Nexa." },
@@ -66,11 +71,11 @@ export default function Timeline() {
             initial={{ rotate:-8, opacity:0, scale:.9 }}
             animate={{ rotate:-6, opacity:1, scale:1 }}
             exit={{ opacity:0 }}
-            className="bg-white p-3 shadow-xl h-[320px] w-50 sm:w-56 md:w-[360px]"
+            className="bg-white p-3 shadow-xl w-full max-w-[320px] sm:max-w-[380px] md:w-[420px] aspect-[4/3] flex-shrink-0"
           >
             <SmartImage
               src={current.image || "/fallback.jpg"}
-              className="w-full h-full sm:h-60 object-cover"
+              className="w-full h-full object-cover"
             />
           </motion.div>
         </AnimatePresence>
