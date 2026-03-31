@@ -54,7 +54,7 @@ export const Carousel = ({
   };
 
   const isMobile = () => {
-    return window && window.innerWidth < 768;
+    return window && window.innerWidth < 840;
   };
 
   return (
@@ -156,11 +156,11 @@ export const Card = ({
       initial={{ scale: 0.92, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       exit={{ scale: 0.92, opacity: 0 }}
-      className="relative z-50 w-[70vw] h-[80vh] bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col"
+      className="relative z-50 w-[92vw] min-[840px]:w-[70vw] h-[85vh] min-[840px]:h-[80vh] bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col"
     >
 
       {/* top image */}
-      <div className="h-2/4 w-full relative">
+      <div className="h-[40%] min-[840px]:h-2/4 w-full relative flex-shrink-0">
         <img
           src={card.src}
           alt={card.title}
@@ -169,17 +169,17 @@ export const Card = ({
       </div>
 
       {/* scrollable content */}
-      <div className="flex-1 overflow-y-auto p-10">
+      <div className="flex-1 overflow-y-auto p-5 min-[840px]:p-10">
 
         <button
           onClick={handleClose}
-          className="absolute top-6 right-6 text-2xl text-gray-400 hover:text-black"
+          className="absolute top-4 right-4 min-[840px]:top-6 min-[840px]:right-6 text-xl min-[840px]:text-2xl text-gray-400 hover:text-black"
         >
           ✕
         </button>
 
         {/* category */}
-        <p className="text-xl text-gray-500 mb-2">
+        <p className="text-sm min-[840px]:text-xl text-gray-500 mb-1 min-[840px]:mb-2">
           {card.category}
         </p>
 
@@ -187,13 +187,13 @@ export const Card = ({
         <a
           href={card.link}
           target="_blank"
-          className="text-4xl font-bold text-black hover:underline block mb-6"
+          className="text-2xl min-[840px]:text-4xl font-bold text-black hover:underline block mb-3 min-[840px]:mb-6"
         >
           {card.title}
         </a>
 
         {/* description */}
-        <div className="text-gray-700 text-xl leading-relaxed space-y-6">
+        <div className="text-gray-700 text-sm min-[840px]:text-xl leading-relaxed space-y-4 min-[840px]:space-y-6">
           {card.content}
         </div>
 

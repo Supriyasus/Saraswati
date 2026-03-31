@@ -35,7 +35,7 @@ export default function AboutUs() {
 
       {/* Heading */}
       <h2 className="text-5xl md:text-6xl font-extrabold mb-6">
-        WHO WE ARE: PURPOSE BUILT
+        WHO WE ARE
       </h2>
 
       <p className="text-xl max-w-6xl mx-auto text-gray-700 mb-20">

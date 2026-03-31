@@ -38,7 +38,7 @@ export default function Team() {
 
       {/* Heading */}
       <div className="text-center mb-20">
-        <h2 className="text-4xl md:text-6xl font-bold mb-6">
+        <h2 className="text-5xl min-[840px]:text-6xl font-bold mb-6">
           OUR TEAM
         </h2>
         <p className="text-xl max-w-4xl mx-auto text-gray-700">
@@ -58,7 +58,7 @@ export default function Team() {
       className="
         bg-[#15284e]
         rounded-2xl
-        flex flex-col md:flex-row
+        flex flex-col min-[840px]:flex-row
         items-center
         shadow-lg
         overflow-hidden
@@ -66,13 +66,13 @@ export default function Team() {
     >
 
       {/* LEFT SIDE */}
-      <div className="w-full md:w-1/2 flex justify-center items-center py-12">
+      <div className="w-full min-[840px]:w-1/2 flex justify-center items-center py-10 px-6">
         
-        {/* THIS is the important fix */}
-        <div className="bg-white rounded-xl shadow-md p-4">
+        {/* White image card with margin from the blue border */}
+        <div className="bg-white rounded-xl shadow-md p-4 mx-4">
           <SmartImage
             src={person.image}
-            className="h-[380px] w-auto object-contain"
+            className="h-[320px] min-[840px]:h-[380px] w-auto object-contain"
           />
         </div>
 
@@ -80,13 +80,13 @@ export default function Team() {
 
       {/* RIGHT SIDE */}
       <div className="
-        w-full md:w-1/2
+        w-full min-[840px]:w-1/2
         bg-[#1f3b73]
         text-white
-        px-10 md:px-16 py-12
-        text-center md:text-left
+        px-10 min-[840px]:px-16 py-12
+        text-center min-[840px]:text-left
       ">
-        <h3 className="text-3xl md:text-4xl font-semibold mb-3">
+        <h3 className="text-3xl min-[840px]:text-4xl font-semibold mb-3">
           {person.name}
         </h3>
 
@@ -94,7 +94,7 @@ export default function Team() {
           {person.role}
         </p>
 
-        <p className="text-lg md:text-xl leading-relaxed max-w-md mx-auto md:mx-0">
+        <p className="text-lg min-[840px]:text-xl leading-relaxed max-w-md mx-auto min-[840px]:mx-0">
           {person.message}
         </p>
       </div>
@@ -104,7 +104,7 @@ export default function Team() {
 </div>
 
       {/* TEAM GRID */}
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-10 max-w-7xl mx-auto">
+      <div className="grid grid-cols-2 min-[840px]:grid-cols-3 gap-6 min-[840px]:gap-10 max-w-7xl mx-auto">
         {team.map((member, i) => (
           <motion.div
             key={i}
@@ -125,17 +125,16 @@ export default function Team() {
             {/* Image Frame */}
             <div className="
               w-full
-              h-64
-              flex items-center justify-center
+              h-52
+              flex items-end justify-center
               bg-[#f9f5f0]
-              p-6
+              px-4 pt-4
+              overflow-hidden
             ">
-              <div className="w-full h-72 flex items-end justify-center bg-[#f9f5f0] overflow-hidden">
-                <SmartImage
-                  src={member.image}
-                  className="h-full w-full object-contain object-bottom"
-                />
-              </div>
+              <SmartImage
+                src={member.image}
+                className="h-full w-full object-contain object-bottom"
+              />
             </div>
 
             {/* Info */}

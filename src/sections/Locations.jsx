@@ -14,7 +14,7 @@ L.Icon.Default.mergeOptions({
 const allLocations = [
   { city:"Prayagraj", name:"Maruti Suzuki Arena (Head Office)", type:"Dealership", category:"Arena", contact:"08071645716", address:"13, 11/5C, Dr Lohia Rd, Lohiya Marg, Prayagraj, Uttar Pradesh 211001", lat:25.4599653, lng:81.8297893 },
   { city:"Prayagraj", name:"Hero MotoCorp Rajapur", type:"Dealership", category:"Hero MotoCorp", contact:"09289922066", address:"No 44, Muir Rd, Om Nagar, Rajapur, Hanumanthpuram, Prayagraj, Uttar Pradesh 211002", lat:25.4665568, lng:81.8325585 },
-  { city:"Prayagraj", name:"Hero MotoCorp", type:"Dealership", category:"Hero MotoCorp", contact:"09415324203", address:"Mansarovar Crossing 4, Shiv Charan Lal Rd, Prayagraj, Uttar Pradesh 211003", lat:25.446983145718715, lng:81.84113523182693},
+  { city:"Prayagraj", name:"Hero MotoCorp Old Prayagraj", type:"Dealership", category:"Hero MotoCorp", contact:"09415324203", address:"Mansarovar Crossing 4, Shiv Charan Lal Rd, Prayagraj, Uttar Pradesh 211003", lat:25.446983145718715, lng:81.84113523182693},
   { city:"Prayagraj", name:"True Value Phulpur", type:"Dealership", category:"True Value", contact:"08037070503", address:"Arazi no. 263, Tehsil-Phulpur, Post, Sarai Inayat, Sarfuddinpur, Phulpur, Uttar Pradesh 221505", lat:25.4257207, lng:81.9792643 },
   { city:"Prayagraj", name:"Nexa Andawa", type:"Dealership", category:"Nexa", contact:"08037892034", address:"Khasra No.638, Tehsil Phoolpur, Andawa, Prayagraj, Uttar Pradesh 221505", lat:25.4312599, lng:81.9412614 },
   { city:"Prayagraj", name:"Driving School", type:"Dealership", category:"Driving School", contact:"08090854003", address:"13, 11/5C, Dr Lohia Rd, Lohiya Marg, Prayagraj, Uttar Pradesh 211001", lat:25.4617136, lng:81.8291314 },
@@ -59,8 +59,8 @@ export default function Locations() {
     <section className="px-6 py-14">
 
       {/* HEADER */}
-      <h2 className="text-center text-5xl md:text-7xl font-bold mb-6">
-        Our Locations
+      <h2 className="text-center text-5xl md:text-6xl font-bold mb-6">
+        OUR LOCATIONS
       </h2>
 
       <p className="text-center text-lg md:text-xl max-w-4xl mx-auto mb-12 text-gray-600">
