@@ -5,7 +5,7 @@ import SmartImage from "../components/SmartImage";
 
 const data = [
   { year: 1992, image: "/history/1992.jpeg", text: "The journey began with the establishment of our first branch in Rajapur, laying the foundation for our future growth." },
-  { year: 2006, image: "/history/2006.png", text: "Expanded our presence with the launch of operations in Old Prayagrajmbar, strengthening our regional footprint." },
+  { year: 2006, image: "/history/2006.png", text: "Expanded our presence with the launch of operations in Old Prayagraj, strengthening our regional footprint." },
   {
     year: "2014",
     image: "/history/2014.jpeg",

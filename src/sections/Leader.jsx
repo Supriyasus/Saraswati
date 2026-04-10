@@ -20,7 +20,7 @@ export default function Leader() {
         <span className="leader__quote leader__quote--start">“</span>
 
         <h1 className="leader__heading">
-          कर्म ही रचता है जीवन की हर दिशा, जो जैसा करता है, वैसा ही फल देखता।
+          श्रेष्ठ कर्म, श्रेष्ठ जीवन। जैसा हमारा प्रयास, वैसा ही हमारा परिणाम।
         </h1>
 
         {/* closing quote */}
