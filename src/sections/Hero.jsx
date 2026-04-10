@@ -38,14 +38,14 @@ export default function Hero() {
         />
 
         {/* Tagline */}
-        <div className="text-2xl md:text-4xl font-semibold text-white tracking-wide text-center">
+        <div className="text-2xl md:text-4xl font-semibold tracking-wide text-center">
 
         <span className="inline-block align-middle">
-            <FlipWords words={words} />
+            <FlipWords words={words} className="text-yellow-400"/>
         </span>
 
-        <span className="ml-0.20rem align-middle">
-            Across Every Journey.
+        <span className="ml-0.20rem text-white align-middle">
+          Across Every Journey.
         </span>
 
         </div>
