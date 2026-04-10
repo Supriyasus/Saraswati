@@ -31,7 +31,7 @@ export default function Hero() {
 
         {/* Logo */}
         <motion.img
-          src="/saraswati.png"
+          src="/saraswati1.png"
           alt="Saraswati logo"
           style={{ y, scale }}
           className="w-[460px] md:w-[860px] mb-6"

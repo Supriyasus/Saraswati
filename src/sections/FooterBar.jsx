@@ -40,7 +40,7 @@ export default function FooterBar() {
 
         {/* LEFT - LOGO */}
         <div className="flex items-center gap-3">
-          <img src="/saraswati.png" className="h-10" />
+          <img src="/saraswati1.png" className="h-10" />
         </div>
 
         {/* RIGHT - DOCK */}
