@@ -11,7 +11,7 @@ export default function FooterBar() {
   const socials = [
     {
       icon: <IconBrandInstagram size={20} />,
-      href: "https://www.instagram.com/saraswati_motors_group?igsh=MThsemNtdWE5cDVxcg=="
+      href: "https://www.instagram.com/saraswatimotorsgroup?igsh=MThsemNtdWE5cDVxcg=="
     },
     {
       icon: <IconMail size={20} />,
